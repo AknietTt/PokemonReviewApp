@@ -1,13 +1,17 @@
-﻿using PokemonReviewApp.Data;
+﻿using AutoMapper;
+using PokemonReviewApp.Data;
 using PokemonReviewApp.Models;
 using PokemonReviewApp.Repository.Interface;
 
 namespace PokemonReviewApp.Repository.Implementation {
    public class CategoryRepository :ICategoryRepository {
       private readonly ApplicationDbContext _context;
+      private readonly IMapper _mapper;
 
-      public CategoryRepository(ApplicationDbContext context) {
+
+      public CategoryRepository(ApplicationDbContext context, IMapper mapper) {
          _context = context;
+         _mapper=mapper;
       }
 
 

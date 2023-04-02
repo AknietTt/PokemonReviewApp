@@ -13,6 +13,11 @@ namespace PokemonReviewApp.Repository.Implementation {
          _context=context;
       }
 
+      public bool CreateOwner(Owner owner) {
+         _context.Add(owner);
+         return Save();
+      }
+
       public ICollection<Owner> GetAllOwnerOfPokemon(int pokeId) {
          return _context.PokemonOwners.Where(o => o.Pokemon.Id == pokeId).Select(o => o.Owner).ToList();
       }
@@ -31,6 +36,11 @@ namespace PokemonReviewApp.Repository.Implementation {
 
       public bool OwnerExists(int ownerId) {
          return _context.Owners.Any(o=>o.Id == ownerId);
+      }
+
+      public bool Save() {
+         var saved = _context.SaveChanges();
+         return saved > 0 ? true : false;
       }
    }
 }

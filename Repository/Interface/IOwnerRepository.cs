@@ -7,5 +7,7 @@ namespace PokemonReviewApp.Repository.Interface {
       ICollection<Owner> GetAllOwnerOfPokemon(int pokeId);
       ICollection<Pokemon> GetPokemonByOwner(int ownerId);
       bool OwnerExists(int ownerId);
+      bool CreateOwner(Owner owner);
+      bool Save();
    }
 }

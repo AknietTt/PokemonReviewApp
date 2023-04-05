@@ -9,6 +9,8 @@ namespace PokemonReviewApp.Repository.Interface {
 
       bool CreateReview(Review review);
       bool UpdateReview(Review review);
+      bool DeleteReview(Review review);
+      bool DeleteReviews(List<Review> review);
       bool Save();
    }
 }

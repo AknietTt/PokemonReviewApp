@@ -18,6 +18,11 @@ namespace PokemonReviewApp.Repository.Implementation {
          return Save();
       }
 
+      public bool DeleteOwner(Owner owner) {
+         _context.Remove(owner);
+         return Save();
+      }
+
       public ICollection<Owner> GetAllOwnerOfPokemon(int pokeId) {
          return _context.PokemonOwners.Where(o => o.Pokemon.Id == pokeId).Select(o => o.Owner).ToList();
       }
